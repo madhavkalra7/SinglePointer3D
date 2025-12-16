@@ -236,8 +236,10 @@ This project is licensed under the **MIT License** — see the LICENSE file for 
 ## 👨‍💻 Author
 
 **Madhav Kalra**
+**Manekas Singh**
 
 GitHub: [@madhavkalra7](https://github.com/madhavkalra7)
+Github: [@manekas2005](https://github.com/manekas2005)
 
 ---
 
