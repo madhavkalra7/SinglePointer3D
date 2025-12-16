@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="msapplication-navbutton-color" content="#1a1a2e">
+    <meta name="apple-mobile-web-app-title" content="Single Point 3D">
+
+    <title>Single Point 3D - Survival Adventure</title>
+    <meta name="description"
+        content="A cartoonish 3D survival game. Slide to avoid enemies through 9 challenging levels!">
+
+    <!-- App Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Orbitron:wght@700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Mobile-specific overrides */
+        * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            overscroll-behavior: none;
+            touch-action: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Safe area insets for notched phones */
+        #hud {
+            padding-top: env(safe-area-inset-top, 20px);
+            padding-left: env(safe-area-inset-left, 20px);
+            padding-right: env(safe-area-inset-right, 20px);
+        }
+
+        #progress-bar-container {
+            padding-bottom: env(safe-area-inset-bottom, 25px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Three.js Canvas Container -->
+    <div id="game-container"></div>
+
+    <!-- 3D-styled UI Overlay -->
+    <div id="hud" class="hidden">
+        <div class="hud-item hud-level">
+            <span class="hud-label">LEVEL</span>
+            <span id="level-display" class="hud-value">1</span>
+        </div>
+        <div class="hud-item hud-score">
+            <span class="hud-label">SCORE</span>
+            <span id="score-display" class="hud-value">0</span>
+        </div>
+        <div class="hud-item hud-lives">
+            <span class="hud-label">LIVES</span>
+            <span id="lives-display" class="hud-value">❤️❤️❤️</span>
+        </div>
+        <div class="hud-item hud-time">
+            <span class="hud-label">TIME</span>
+            <span id="time-display" class="hud-value">30</span>
+        </div>
+        <div class="hud-item hud-map">
+            <span class="hud-label">MAP</span>
+            <span id="map-display" class="hud-value">🎉</span>
+        </div>
+    </div>
+
+    <!-- Level Progress Bar -->
+    <div id="progress-bar-container" class="hidden">
+        <div id="progress-bar"></div>
+        <span id="progress-text">Level Progress</span>
+    </div>
+
+    <!-- Power-up Indicator -->
+    <div id="powerup-indicator" class="hidden">
+        <span id="powerup-icon">🛡️</span>
+        <span id="powerup-timer">5s</span>
+    </div>
+
+    <!-- Advanced Start Screen -->
+    <div id="start-screen" class="screen">
+        <!-- Animated Background Particles -->
+        <div class="bg-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+        <div class="screen-content start-content">
+            <!-- Logo Section -->
+            <div class="logo-container">
+                <div class="logo-glow"></div>
+                <h1 class="game-title">
+                    <span class="title-line title-small">SINGLE POINT</span>
+                    <span class="title-line title-main">
+                        <span class="title-3d-letter">3</span>
+                        <span class="title-3d-letter">D</span>
+                    </span>
+                </h1>
+                <p class="game-tagline">⚡ SURVIVAL ADVENTURE ⚡</p>
+            </div>
+
+            <!-- Map Selection Section -->
+            <div class="map-selection">
+                <h2 class="section-title">🗺️ SELECT YOUR ARENA</h2>
+                <div class="map-carousel">
+                    <div class="map-card selected" data-map="party">
+                        <div class="map-preview party-preview">
+                            <div class="map-icon">🎉</div>
+                            <div class="map-particles"></div>
+                        </div>
+                        <div class="map-info">
+                            <h3 class="map-name">Party Zone</h3>
+                            <p class="map-desc">Colorful & Festive!</p>
+                        </div>
+                        <div class="map-badge">POPULAR</div>
+                    </div>
+
+                    <div class="map-card" data-map="military">
+                        <div class="map-preview military-preview">
+                            <div class="map-icon">🎖️</div>
+                            <div class="map-particles"></div>
+                        </div>
+                        <div class="map-info">
+                            <h3 class="map-name">Military Base</h3>
+                            <p class="map-desc">Tactical & Dark</p>
+                        </div>
+                        <div class="map-badge new-badge">TACTICAL</div>
+                    </div>
+
+                    <div class="map-card" data-map="desert">
+                        <div class="map-preview desert-preview">
+                            <div class="map-icon">🏜️</div>
+                            <div class="map-particles"></div>
+                        </div>
+                        <div class="map-info">
+                            <h3 class="map-name">Desert Storm</h3>
+                            <p class="map-desc">Hot & Sandy</p>
+                        </div>
+                        <div class="map-badge">EXTREME</div>
+                    </div>
+
+                    <div class="map-card" data-map="jungle">
+                        <div class="map-preview jungle-preview">
+                            <div class="map-icon">🌴</div>
+                            <div class="map-particles"></div>
+                        </div>
+                        <div class="map-info">
+                            <h3 class="map-name">Wild Jungle</h3>
+                            <p class="map-desc">Green & Wild</p>
+                        </div>
+                        <div class="map-badge">ADVENTURE</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-section">
+                <button id="start-btn" class="btn btn-mega">
+                    <span class="btn-glow"></span>
+                    <span class="btn-content">
+                        <span class="btn-icon">🚀</span>
+                        <span class="btn-text">PLAY NOW</span>
+                    </span>
+                </button>
+
+                <div class="secondary-buttons">
+                    <button id="start-no-sound-btn" class="btn btn-ghost">
+                        <span class="btn-icon">🔇</span>
+                        <span>No Sound</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Controls Preview -->
+            <div class="controls-preview">
+                <div class="control-item">
+                    <div class="control-icon">👆</div>
+                    <span>Slide to Move</span>
+                </div>
+                <div class="control-item">
+                    <div class="control-icon">🎯</div>
+                    <span>Avoid Enemies</span>
+                </div>
+                <div class="control-item">
+                    <div class="control-icon">⭐</div>
+                    <span>Collect Power-ups</span>
+                </div>
+            </div>
+
+            <!-- Stats Preview -->
+            <div class="stats-preview">
+                <div class="stat-item">
+                    <span class="stat-value" id="home-best-score">0</span>
+                    <span class="stat-label">Best Score</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-value">9</span>
+                    <span class="stat-label">Levels</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-value">4</span>
+                    <span class="stat-label">Maps</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Level Complete Screen -->
+    <div id="level-complete-screen" class="screen hidden">
+        <div class="screen-content">
+            <div class="celebration-particles"></div>
+            <h2 class="level-complete-title">🎉 LEVEL COMPLETE! 🎉</h2>
+            <div class="level-stats">
+                <div class="level-stat">
+                    <span class="stat-num" id="level-score">0</span>
+                    <span class="stat-name">SCORE</span>
+                </div>
+            </div>
+            <p class="next-level-text">Get ready for <span id="next-level">Level 2</span>!</p>
+            <button id="next-level-btn" class="btn btn-primary">
+                <span class="btn-icon">➡️</span>
+                <span>NEXT LEVEL</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="game-over-screen" class="screen hidden">
+        <div class="screen-content game-over-content">
+            <h2 class="game-over-title">💥 GAME OVER 💥</h2>
+            <div class="final-stats">
+                <p>Level Reached: <span id="final-level">1</span></p>
+                <p>Final Score: <span id="final-score">0</span></p>
+                <p>Best Score: <span id="best-score">0</span></p>
+            </div>
+            <button id="restart-btn" class="btn btn-primary">
+                <span class="btn-icon">🔄</span>
+                <span>PLAY AGAIN</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Victory Screen -->
+    <div id="victory-screen" class="screen hidden">
+        <div class="screen-content victory-content">
+            <h2 class="victory-title">🏆 VICTORY! 🏆</h2>
+            <p class="victory-subtitle">You conquered all 9 levels!</p>
+            <div class="final-stats">
+                <p>Final Score: <span id="victory-score">0</span></p>
+                <p>Best Score: <span id="victory-best">0</span></p>
+            </div>
+            <button id="play-again-btn" class="btn btn-primary">
+                <span class="btn-icon">🎮</span>
+                <span>PLAY AGAIN</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Three.js and Game Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="levels.js"></script>
+    <script src="maps.js"></script>
+    <script src="game.js"></script>
+</body>
+
+</html>

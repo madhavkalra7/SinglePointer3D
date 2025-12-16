@@ -1,0 +1,33 @@
+{
+  "name": "single-point-3d",
+  "version": "1.0.0",
+  "description": "Single Point 3D - Survival Adventure Game",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server ./www -p 8080",
+    "build": "npm run copy-files",
+    "copy-files": "node scripts/copy-files.js",
+    "cap:init": "npx cap init \"Single Point 3D\" com.singlepoint3d.game --web-dir www",
+    "cap:add-android": "npx cap add android",
+    "cap:sync": "npx cap sync",
+    "cap:open-android": "npx cap open android",
+    "android:build": "cd android && .\\gradlew assembleDebug",
+    "full-build": "npm run build && npm run cap:sync && npm run android:build"
+  },
+  "keywords": [
+    "game",
+    "3d",
+    "survival",
+    "threejs",
+    "android"
+  ],
+  "author": "Single Point Games",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@capacitor/android": "^5.0.0",
+    "@capacitor/cli": "^5.0.0",
+    "@capacitor/core": "^5.0.0",
+    "http-server": "^14.1.1"
+  }
+}

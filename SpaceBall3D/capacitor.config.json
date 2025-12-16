@@ -1,0 +1,21 @@
+{
+  "appId": "com.singlepoint3d.game",
+  "appName": "Single Point 3D",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "backgroundColor": "#1a1a2e",
+      "showSpinner": false
+    }
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false
+  }
+}
