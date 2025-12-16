@@ -1,29 +1,19 @@
-<![CDATA[<div align="center">
-
 # 🎮 Single Point 3D
 
-### ⚡ A Cartoonish 3D Survival Adventure Game ⚡
+## ⚡ A Cartoonish 3D Survival Adventure Game ⚡
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white" alt="Three.js"/>
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"/>
-  <img src="https://img.shields.io/badge/Capacitor-119EFF?style=for-the-badge&logo=capacitor&logoColor=white" alt="Capacitor"/>
-  <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android"/>
-</p>
+![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Capacitor](https://img.shields.io/badge/Capacitor-119EFF?style=for-the-badge&logo=capacitor&logoColor=white)
+![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 
-<p align="center">
-  <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="License"/>
-  <img src="https://img.shields.io/badge/Version-1.0.0-green.svg?style=flat-square" alt="Version"/>
-  <img src="https://img.shields.io/badge/Status-Active-success.svg?style=flat-square" alt="Status"/>
-</p>
+![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.0.0-green.svg?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Active-success.svg?style=flat-square)
 
 ---
 
 **Slide to survive! Dodge enemies through 9 thrilling levels across 4 unique themed arenas!**
-
-[Play Now](#-quick-start) • [Features](#-features) • [Screenshots](#-screenshots) • [Installation](#-installation) • [Build APK](#-building-android-apk)
-
-</div>
 
 ---
 
@@ -36,24 +26,25 @@
 ## ✨ Features
 
 ### 🎮 Core Gameplay
-- **🎯 9 Challenging Levels** — Progressive difficulty with unique enemy patterns
-- **🗺️ 4 Themed Maps** — Party Zone, Military Base, Desert Storm & Wild Jungle
-- **👾 Multiple Enemy Types** — Basic, Fast, Tank, Splitter, Ghost & Boss enemies
-- **⚡ Power-ups** — Shield, Speed Boost, Slow-Mo, Extra Life & Bomb
-- **🏆 Score System** — Track your best scores with local storage
+- 🎯 **9 Challenging Levels** — Progressive difficulty with unique enemy patterns
+- 🗺️ **4 Themed Maps** — Party Zone, Military Base, Desert Storm & Wild Jungle
+- 👾 **Multiple Enemy Types** — Basic, Fast, Tank, Splitter, Ghost & Boss enemies
+- ⚡ **Power-ups** — Shield, Speed Boost, Slow-Mo, Extra Life & Bomb
+- 🏆 **Score System** — Track your best scores with local storage
 
 ### 🎨 Visual Excellence
-- **🌈 Gorgeous 3D Graphics** — Cartoonish style with vibrant colors
-- **✨ Particle Effects** — Explosions, glows & dynamic animations
-- **☁️ Environmental Details** — Floating islands, clouds, balloons & more
-- **🌟 Theme-based Aesthetics** — Each map has unique colors, lighting & decorations
+- 🌈 **Gorgeous 3D Graphics** — Cartoonish style with vibrant colors
+- ✨ **Particle Effects** — Explosions, glows & dynamic animations
+- ☁️ **Environmental Details** — Floating islands, clouds, balloons & more
+- 🌟 **Theme-based Aesthetics** — Each map has unique colors, lighting & decorations
 
 ### 🕹️ Controls
+
 | Platform | Controls |
 |----------|----------|
-| 🖱️ **Mouse** | Slide to move |
-| ⌨️ **Keyboard** | WASD / Arrow keys |
-| 📱 **Touch** | Swipe & drag |
+| 🖱️ Mouse | Slide to move |
+| ⌨️ Keyboard | WASD / Arrow keys |
+| 📱 Touch | Swipe & drag |
 
 ### 📱 Cross-Platform
 - ✅ Web Browser (Desktop & Mobile)
@@ -66,10 +57,10 @@
 
 | Map | Theme | Difficulty | Description |
 |-----|-------|------------|-------------|
-| 🎉 **Party Zone** | Festive | Easy | Colorful balloons & confetti |
-| 🎖️ **Military Base** | Tactical | Medium | Dark & intense atmosphere |
-| 🏜️ **Desert Storm** | Extreme | Hard | Hot sandy battlefield |
-| 🌴 **Wild Jungle** | Adventure | Expert | Dense greenery & wildlife |
+| 🎉 Party Zone | Festive | Easy | Colorful balloons & confetti |
+| 🎖️ Military Base | Tactical | Medium | Dark & intense atmosphere |
+| 🏜️ Desert Storm | Extreme | Hard | Hot sandy battlefield |
+| 🌴 Wild Jungle | Adventure | Expert | Dense greenery & wildlife |
 
 ---
 
@@ -77,12 +68,12 @@
 
 | Enemy | Speed | Size | Special Ability |
 |-------|-------|------|-----------------|
-| 🔴 **Basic** | Normal | Medium | Standard homing |
-| ⚡ **Fast** | Very Fast | Small | Quick but weak |
-| 🛡️ **Tank** | Slow | Large | High health points |
-| 💥 **Splitter** | Normal | Medium | Splits on destroy |
-| 👻 **Ghost** | Medium | Medium | Phasing movement |
-| 💀 **Boss** | Slow | Huge | Extremely tough |
+| 🔴 Basic | Normal | Medium | Standard homing |
+| ⚡ Fast | Very Fast | Small | Quick but weak |
+| 🛡️ Tank | Slow | Large | High health points |
+| 💥 Splitter | Normal | Medium | Splits on destroy |
+| 👻 Ghost | Medium | Medium | Phasing movement |
+| 💀 Boss | Slow | Huge | Extremely tough |
 
 ---
 
@@ -90,11 +81,11 @@
 
 | Power-up | Effect | Duration |
 |----------|--------|----------|
-| 🛡️ **Shield** | Invincibility | 5 seconds |
-| 💨 **Speed** | Move faster | 3 seconds |
-| ⏰ **Slow-Mo** | Slows enemies | 4 seconds |
-| ❤️ **Life** | +1 Extra life | Instant |
-| 💣 **Bomb** | Destroy all enemies | Instant |
+| 🛡️ Shield | Invincibility | 5 seconds |
+| 💨 Speed | Move faster | 3 seconds |
+| ⏰ Slow-Mo | Slows enemies | 4 seconds |
+| ❤️ Life | +1 Extra life | Instant |
+| 💣 Bomb | Destroy all enemies | Instant |
 
 ---
 
@@ -120,7 +111,7 @@ npm install
 npm start
 ```
 
-Open [http://localhost:8080](http://localhost:8080) in your browser and start playing! 🎮
+Open http://localhost:8080 in your browser and start playing! 🎮
 
 ---
 
@@ -150,9 +141,10 @@ npm run cap:sync
 npm run android:build
 ```
 
-📦 APK Location: `android/app/build/outputs/apk/debug/app-debug.apk`
+📦 **APK Location:** `android/app/build/outputs/apk/debug/app-debug.apk`
 
 ### Or Full Build (One Command)
+
 ```bash
 npm run full-build
 ```
@@ -185,11 +177,11 @@ SinglePointer3D/
 
 | Technology | Purpose |
 |------------|---------|
-| **Three.js** | 3D Graphics Rendering |
-| **JavaScript** | Game Logic |
-| **CSS3** | UI Styling & Animations |
-| **Capacitor** | Native Android Wrapper |
-| **Gradle** | Android Build System |
+| Three.js | 3D Graphics Rendering |
+| JavaScript | Game Logic |
+| CSS3 | UI Styling & Animations |
+| Capacitor | Native Android Wrapper |
+| Gradle | Android Build System |
 
 ---
 
@@ -203,6 +195,7 @@ SinglePointer3D/
 6. **Beat all 9 levels** to achieve VICTORY! 🏆
 
 ### Pro Tips 💡
+
 - Keep moving — standing still = death!
 - Shield power-up is your best friend
 - Watch out for Splitter enemies
@@ -236,7 +229,7 @@ Contributions are welcome! Feel free to:
 
 ## 📝 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** — see the LICENSE file for details.
 
 ---
 
@@ -244,20 +237,13 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 **Madhav Kalra**
 
-- GitHub: [@madhavkalra7](https://github.com/madhavkalra7)
+GitHub: [@madhavkalra7](https://github.com/madhavkalra7)
 
 ---
 
-<div align="center">
-
 ### ⭐ Star this repo if you enjoyed the game! ⭐
 
-<p>
-  <img src="https://img.shields.io/github/stars/madhavkalra7/SinglePointer3D?style=social" alt="Stars"/>
-  <img src="https://img.shields.io/github/forks/madhavkalra7/SinglePointer3D?style=social" alt="Forks"/>
-</p>
+![Stars](https://img.shields.io/github/stars/madhavkalra7/SinglePointer3D?style=social)
+![Forks](https://img.shields.io/github/forks/madhavkalra7/SinglePointer3D?style=social)
 
 **Made with ❤️ and Three.js**
-
-</div>
-]]>
