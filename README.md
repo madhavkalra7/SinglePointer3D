@@ -235,7 +235,7 @@ This project is licensed under the **MIT License** — see the LICENSE file for 
 
 ## 👨‍💻 Author
 
-**Madhav Kalra**
+**Madhav Kalra** , 
 **Manekas Singh**
 
 GitHub: [@madhavkalra7](https://github.com/madhavkalra7)
